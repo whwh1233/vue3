@@ -1,2 +1,3 @@
 # vue3
-coderwhy
+## vue3 start practice
+taught by coderwhy
