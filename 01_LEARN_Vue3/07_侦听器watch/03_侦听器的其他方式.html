@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <template id="my-app">
+    <h2>{{message}}</h2>
+    <h2>{{info.name}}</h2>
+    <button @click="changeInfo">改变info</button>
+    <button @click="changeInfoName">改变info.name</button>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = {
+      template:'#my-app',
+      data() {
+        return {
+          message:'Hello World',
+          info:{
+            name:'wh',
+            age:19,
+            height:180,
+            food:{
+              vegetable:'veg',
+              food:'meat'
+            }
+
+          }
+        }
+      },
+      // 默认情况下 侦听器只能侦听数据本身的改变
+      // 对于内部某个属性的改变是监听不到的
+      // 此时就需要深度侦听了
+      watch:{
+        // info(newValue,oldValue) {
+        //   console.log('new:',newValue)
+        //   console.log('old:',oldValue)
+        // }
+          
+        // 深度侦听
+        // 立即执行   无论数据是否变化，都立即执行
+        // info: {
+        //   handler:function(newValue,oldValue) {
+        //     console.log('new:',newValue)
+        //     console.log('old:',oldValue)
+        //   },
+        //   deep:true,  // 深度侦听   更加的深度也可以侦听到
+        //   immediate:true //立即执行
+        // },
+
+        // 也可以这么实现深度侦听
+        "info.name":{
+          handler:function(newValue,oldValue) {
+            console.log('new:',newValue)
+            console.log('old:',oldValue)
+          },
+        }
+
+      },
+      methods: {
+        changeInfo() {
+          this.info = {
+            name:'w112233',
+            age:28,
+            height:200
+          }
+        },
+        changeInfoName() {
+          // this.info.name = '1233'
+          this.info.food.vegetable = 'w1123'
+        }
+      },
+      created() {
+        console.log('自动调用生命周期')
+        const unwatch = this.$watch("info",(newInfo,oldInfo)=> {
+          console.log(newInfo)
+          console.log(oldInfo)
+
+        },{
+          deep:true,
+          immediate:true
+        })
+        // unwatch()   侦听器可以这样取消   只有这样定义的侦听器才可以取消
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+</html>

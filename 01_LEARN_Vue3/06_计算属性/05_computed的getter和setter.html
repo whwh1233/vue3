@@ -29,11 +29,19 @@
       },
 
       computed:{
+        // 简单来说计算属性只需要写一个getter函数就可以了
+        // 所以我们把它写成一个函数
+        // 传入对象也可以
+        // vue会自动把这个处理成一个有getter 和setter 的对象
+        // 源码判断:是函数就赋值给 getter  是对象就给他拆开
+
+
         // 最简单写法
         fullName1() {
           console.log('computed的计算')
           return this.firstName + " " + this.lastName
         },
+
         // computed 的 getter 方法
         fullName2:function () {
           return this.firstName + " " + this.lastName
@@ -57,7 +65,7 @@
           this.firstName = 'www'
         },
         changeFullName() {
-          this.fullName = 'whwh 1233'
+          this.fullName = 'wang 1233'
         }
       }
       
