@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <template id="my-app">
+    <h2>{{message}}</h2>
+    <!-- 完整写法 -->
+    <div v-on:click="btnClick">按钮1</div>
+    <div v-on:mousemove="mouseMove">按钮2</div>
+    <!-- 简写 -->
+    <button @click="increment">{{counter}}</button>
+    <!-- 一次性绑定一个对象里的所有事件 -->
+    <div v-on="{click:btnClick,mousemove:mouseMove}">哈哈哈哈哈</div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = {
+      template:'#my-app',
+      data() {
+        return {
+          message:'Hello World',
+          counter:100
+        }
+      },
+      methods: {
+        btnClick() {
+          console.log('btn 被点击了')
+        },
+        mouseMove() {
+          console.log('btn 被移动了')
+
+        },
+        increment() {
+          this.counter ++
+        }
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+</html>

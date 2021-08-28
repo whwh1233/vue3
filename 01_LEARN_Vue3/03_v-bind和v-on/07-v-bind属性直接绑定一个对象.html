@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <template id="my-app">
+    <h2>{{message}}</h2>
+    <div :class="info">hahahaha</div>
+    <!-- 这样使用的效果 -->
+    <!-- <div :class="name height age">hahahaha</div> -->
+    <!-- 而我们需要的效果 -->
+    <div name="wh" height="180" age="19">hahahaha</div>
+    <!-- 记住这个用法 -->
+    <!-- 封装高级组件时候， 就会比较有用-->
+    <div v-bind="info">哈哈哈哈哈</div>
+    <!-- 不推荐使用这个语法糖，阅读性比较差 -->
+    <div :="info">哈哈哈哈哈</div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = {
+      template:'#my-app',
+      data() {
+        return {
+          message:'Hello World',
+          info:{
+            name:'wh',
+            height:180,
+            age:19
+          }
+        }
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+</html>

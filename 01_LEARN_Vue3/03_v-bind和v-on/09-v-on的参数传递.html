@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <template id="my-app">
+    <h2>{{message}}</h2>
+    <!-- 默认传入event对象，可以直接使用 -->
+    <div @click="btn1Click">参数传递</div>
+    <!-- $event的显示方法 -->
+    <div @click="btn2Click($event,'wh')">参数传递2</div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = {
+      template:'#my-app',
+      data() {
+        return {
+          message:'Hello World'
+        }
+      },
+      methods:{
+        btn1Click() {
+          console.log('参数传递1')
+          console.log(event)
+        },
+        btn2Click(event,name) {
+          console.log('参数传递2')
+          console.log(event)
+          console.log(name)
+        }
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+</html>
