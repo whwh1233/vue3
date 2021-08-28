@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <div>
+        <h2>{{message}}</h2>
+        <!-- 对象语法:{'active':boolean} -->
+        <!-- active的引号可以不加也可以加 -->
+        <!-- 可以有多个键值对 -->
+        <div :class="{'active':isActive ,title:isTitle}">哈哈哈</div>
+        <!-- 默认class与动态class的结合 -->
+        <div class="blue" :class="{title:isTitle}">动态class与默认class的结合</div>
+        <!-- 也可以将对象放在单独的一个属性里 -->
+        <!-- 也可以放到computed 和 methods 中 -->
+        <div :class="getClassObj()">通过methods 获得 class</div>
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <button @click="changeIsActive">切换class-active</button>
+        <button @click="changeIsTitle">切换class-title</button>
+      </div>
+
+      <!--  -->
+    </template>
+    <style>
+      .blue {
+        color: blue;
+      }
+      .active {
+        color: red;
+      }
+      .title {
+        background-color: yellow;
+      }
+    </style>
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello world',
+            isActive: false,
+            isTitle: true,
+            // 不要引用data里的数据，不然不能响应式
+            classObj: {
+              title: true,
+              blue: true
+            }
+          }
+        },
+        methods: {
+          changeIsActive() {
+            this.isActive = !this.isActive
+          },
+          changeIsTitle() {
+            this.isTitle = !this.isTitle
+          },
+          getClassObj() {
+            return this.classObj
+          }
+        }
+      }
+      Vue.createApp(app).mount('#app')
+    </script>
+  </body>
+</html>

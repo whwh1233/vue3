@@ -11,12 +11,10 @@
 
     <template id="my-app">
       <h2>{{message}}</h2>
-      <!-- 1.v-bind的基本使用 -->
-      <img v-bind:src="imgUrl" alt="" />
-      <!-- 2.v-bind的语法糖 -->
-      <a :href="link">百度一下</a>
-      <!-- 不加：有本质区别  上述vue会自动替换-->
-      <a href="link">百度一下</a>
+      <!-- 还可以三元运算符 -->
+      <div :class="['abc',title,isActive?'yes':'no']">哈哈哈</div>
+      <!-- 还可以嵌套对象语法 -->
+      <div :class="['abc',{'yes':isActive}]">嵌套对象语法</div>
     </template>
 
     <script src="../js/vue.js"></script>
@@ -26,8 +24,8 @@
         data() {
           return {
             message: 'Hello world',
-            link: 'https://www.baidu.com',
-            imgUrl: 'https://thirdqq.qlogo.cn/g?b=sdk&k=N3FTd45MgTAgWgNzOVUIGQ&s=140&t=1557382172'
+            title: 'title2',
+            isActive: true
           }
         }
       }
