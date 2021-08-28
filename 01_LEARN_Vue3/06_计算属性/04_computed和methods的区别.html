@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <template id="my-app">
+    <h2>{{message}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{getFullName()}}</h2>    
+    <h2>{{fullName}}</h2>
+    <h2>{{getFullName()}}</h2>    
+    <h2>{{fullName}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <button @click="changeFirstName">切换 </button>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = {
+      template:'#my-app',
+      data() {
+        return {
+          message:'Hello World',
+          firstName:'w',
+          lastName:'h',
+          score:100,
+        }
+      },
+      // 计算属性是有缓存的
+      // 计算属性中的 getter 和 setter
+      // 要么写 function 要么写 getter 和 setter
+      // this 直接绑定了组件实例
+      computed:{
+        // 计算属性会根据依赖的数据自动重新计算
+        // 计算属性的原理
+        fullName() {
+          console.log('computed的计算')
+          return this.firstName + " " + this.lastName
+        }
+      },
+      // 由 console 可以看出 
+      // computed 是有缓存的
+      // 多次使用时， 只会使用一次
+      methods : {
+        getFullName() {
+          console.log('methods的计算')
+          return this.firstName + " " + this.lastName
+        },
+        changeFirstName() {
+          this.firstName = 'www'
+        }
+      }
+      
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+</html>
