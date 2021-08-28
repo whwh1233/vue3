@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <template id="my-app">
+    <!-- ul 中不推荐加入 div   因此使用template -->
+    <h2>{{message}}</h2>
+    <ul>
+      <div v-for="(value,key) in info">
+        <ul>{{value}}</ul>
+        <ul>{{key}}</ul>
+        <hr>
+      </div>
+    </ul>
+    <ul>
+      <template v-for="(value,key) in info">
+        <ul>{{value}}</ul>
+        <ul>{{key}}</ul>
+        <hr>
+      </template>
+    </ul>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = {
+      template:'#my-app',
+      data() {
+        return {
+          message:'Hello World',
+          info:{
+            age:19,
+            name:'wh',
+            height:180
+          }
+        }
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+</html>

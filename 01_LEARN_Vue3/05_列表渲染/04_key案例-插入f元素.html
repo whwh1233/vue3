@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <template id="my-app">
+    <h2>{{message}}</h2>
+    <ul>
+      <li v-for="(letter ,index) in letters"> {{letter}}</li>
+    </ul>
+    <button @click="insertF">插入f元素</button>
+  </template>
+  <!-- 刚开始 -->
+  <!-- 四个 VNode -->
+  <!-- 插入后，vue怎么告诉真实DOM 什么操作效率是最高的 -->
+  <!-- diff 算法  -->
+  <!-- 旧 VNodes -->
+  <!-- 新 VNodes 对比的过程就是diff算法，-->  
+  <!-- vue 会根据是否有key调用不同的方法 -->
+  <!-- 有key ： patchKeyedChildren 共五步 -->
+  <!-- 1.从头开始遍历 使用while循环  patch:对比俩节点的type以及key值 一旦不一样，就break -->
+  <!-- 2.从尾部开始遍历，同上 -->
+  <!-- 3.旧的完了 还有节点  patch:null与节点 相当于挂载新的  -->
+  <!-- 4.旧的没完，多的就卸载 -->
+  <!-- 5.如果中间的是乱七八糟的乱序节点 -->
+  <!-- 尽量利用旧节点中key一样的节点 少的加，多的删 -->
+  <!-- 使用key会更加高效一点 -->
+
+  
+  <!-- 没有key：patchUnkeyedChildren -->
+  <!-- 1.选择较短的数组进行遍历，一个一个对比，相同的不需要更新，不同的进行更新 -->
+  <!-- 2.新的短，那遍历完就unmount旧的剩下的 -->
+  <!-- 3.新的长，那遍历完就mount一些新的节点 -->
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = {
+      template:'#my-app',
+      data() {
+        return {
+          message:'Hello World',
+          letters:['a','b','c','d']
+        }
+      },
+      methods:{
+        insertF() {
+          this.letters.splice(2,0,'f')
+        }
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+</html>
