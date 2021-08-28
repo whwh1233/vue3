@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <input type="text" v-model="message" />
+      <!-- 语法糖的本质 -->
+      <input type="text" :value="message" @input="updateMessage" />
+      <h2>{{message}}</h2>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello world'
+          }
+        },
+        methods: {
+          updateMessage(event) {
+            console.log(event)
+            this.message = event.target.value
+          }
+        }
+      }
+      Vue.createApp(app).mount('#app')
+    </script>
+  </body>
+</html>
