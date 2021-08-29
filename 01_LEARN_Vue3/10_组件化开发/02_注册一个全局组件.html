@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 组件命名的方式  短横线分割/驼峰标识 -->
+  <div id="app"></div>
+  <template id="my-app">
+   
+    <component-b></component-b>
+    <component-a></component-a>
+    <component-a></component-a>
+    <component-b></component-b>
+    <component-a></component-a> 
+    <component-a></component-a>
+    <component-b></component-b>
+    <component-c></component-c>
+    <ComponentC></ComponentC>
+  
+  </template>
+
+  <template id="comp-a">
+    <p>{{title}}</p>
+    <p>我是内容</p>
+    <button @click="btnClick"> 更改内容</button>
+  </template>
+
+  <template id="comp-b">
+    <h2>{{title}}</h2>
+  </template>
+  <template id="comp-c">
+    <h2>{{title}}</h2>
+  </template>
+  <script src="../js/vue.js"></script>
+  <script>
+    const App = {
+      template:'#my-app',
+    }
+    const app = Vue.createApp(App)
+    // 使用app注册一个组件
+    // app.component(组件名称，组件对象)
+    // 全局组件：注册的组件可以在任何组件模板中使用
+    // 开发中不推荐使用 全局组件
+    app.component('component-a',{
+      template:'#comp-a',
+      data() {
+        return {
+          title:'我是comp-a的标题'
+        }
+      },
+      methods:{
+        btnClick() {
+          this.title = "btnClick"
+        }
+      }
+    })
+    app.component('component-b',{
+      template:'#comp-b',
+      data() {
+        return {
+          title:'我是comp-b的标题'
+        }
+      }
+    })
+    app.component('ComponentC',{
+      template:'#comp-c',
+      data() {
+        return {
+          title:'我是comp-c的标题'
+        }
+      }
+    })
+    app.mount('#app')
+  </script>
+</body>
+</html>
