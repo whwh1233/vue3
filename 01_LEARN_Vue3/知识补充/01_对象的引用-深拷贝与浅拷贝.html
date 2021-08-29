@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1. 对象的引用赋值，相当于c++的指针 -->
+    <!-- <script>
+      // 对象是引用类型
+      const info = {
+        name: 'wh',
+        age: 18
+      }
+      console.log(info)
+      const info2 = info
+      console.log(info2)
+      info.name = 'whwh1233'
+      // info2会跟着改变
+      console.log(info2)
+    </script> -->
+
+    <!-- 2.对象的浅拷贝 -->
+    <!-- <script>
+      const info = {
+        name: 'wh',
+        age: 18,
+        friend: {
+          name: 'curry',
+          age: 40
+        }
+      }
+      console.log(info)
+      // 此时会创建一个新的对象，一个新的引用地址，因此不会相互影响
+      // 深层次的对象的浅拷贝依然是对象的引用，会被一起修改
+      const info2 = Object.assign({}, info)
+      console.log(info2)
+      info.name = 'whwh1233'
+      info.friend.age = 50
+      console.log(info)
+      console.log(info2)
+    </script> -->
+
+    <!-- 3.深拷贝 -->
+    <script>
+      const info = {
+        age: 18,
+        name: 'wh'
+      }
+      const info2 = JSON.parse(JSON.stringify(info))
+      info.name = 'curry'
+      console.log(info2)
+    </script>
+
+    <!-- 使用插件 -->
+    <!-- lodash 是一个第三方的库，实现深浅拷贝 -->
+  </body>
+</html>
