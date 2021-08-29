@@ -1,0 +1,1 @@
+(()=>{var r={466:(r,o,e)=>{(r=e.nmd(r)).export={priceFormat:function(){return"998"}}}},o={};function e(t){var n=o[t];if(void 0!==n)return n.exports;var d=o[t]={id:t,loaded:!1,exports:{}};return r[t](d,d.exports,e),d.loaded=!0,d.exports}e.nmd=r=>(r.paths=[],r.children||(r.children=[]),r),(()=>{"use strict";const r=e(466);console.log(250),console.log(r)})()})();
