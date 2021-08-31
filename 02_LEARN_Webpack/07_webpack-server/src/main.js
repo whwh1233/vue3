@@ -1,9 +1,9 @@
 import { sum } from './js/math'
 const priceFormat = require('./js/format')
 // 形成依赖关系图再开始进行打包
-import ele from './js/element'
 // 把vue当做一个模块来导入
-import { createApp } from 'vue/dist/vue.esm-bundler'
+import { createApp } from 'vue'
+import ele from './js/element'
 
 import App from './vue/APP.vue'
 
@@ -19,4 +19,5 @@ console.log(message)
 const app = createApp(App)
 app.mount('#app')
 
+console.log('abc')
 console.log('abc')
