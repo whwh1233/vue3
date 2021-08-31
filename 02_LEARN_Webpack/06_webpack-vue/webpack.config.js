@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 // 允许在定义全局变量
 const { DefinePlugin } = require('webpack')
+const { VueLoaderPlugin } = require('vue-loader/dist/index')
 
 module.exports = {
   // 解决 bundle.js 代码看不懂的问题  设置开发模式  production
@@ -79,6 +80,10 @@ module.exports = {
         test: /\.js$/,
 
         loader: 'babel-loader'
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       }
     ]
   },
@@ -95,6 +100,7 @@ module.exports = {
     new DefinePlugin({
       title: '"abcd"'
     }),
+    new VueLoaderPlugin({}),
     new CopyWebpackPlugin({
       patterns: [
         {
