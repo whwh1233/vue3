@@ -1,6 +1,7 @@
 .DS_Store
 .history/
 node_modules/
+build/
 unpackage/
 dist/
 
