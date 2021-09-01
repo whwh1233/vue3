@@ -6,12 +6,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { DefinePlugin } = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader/dist/index')
 
+// 改失败了   需要使用  webpack-merge  来 merge common 到 dev 和 prod
+
 module.exports = {
   // 解决 bundle.js 代码看不懂的问题  设置开发模式  production
   // mode 的设置其实代表了更多  development也代表了devtool:eval模式，所以要在后面更改一下devtool:source-map中
-  mode: 'development',
   // 报错的地方可以找到源代码  建立js映射文件，方便调试代码的错误
-  devtool: 'source-map',
   entry: './src/main.js',
   output: {
     publicPath: '/',
@@ -21,22 +21,7 @@ module.exports = {
     // 也可以写这里面 下面的assets中的filename属性
   },
   // devserve本身相当于一个express 服务器
-  devServer:{
-    hot:true,
-    // host:'0.0.0.0',
-    port:777,
-    open:true,
-    // proxy:{
-    //   '/api':{
-    //     target:'http://localhost:8080',
-    //     pathRewrite:{
-    //       "^/api":""
-    //     },
-    //     secure:false,
-    //     changeOrigin:true
-    //   }
-    // }
-  },
+  
   // import util from './util'
   // 会默认去寻找 util、index.js
   resolve:{
