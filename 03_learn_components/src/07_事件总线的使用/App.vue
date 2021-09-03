@@ -2,6 +2,7 @@
   <div>
     <h2>{{message}}</h2>
     <home></home>
+    <about></about>
     <button @click="incre">增加</button>
     <h2>{{lists.length}}</h2>
   </div>
@@ -9,6 +10,7 @@
 
 <script>
 import Home from './Home.vue'
+import About from './About.vue'
 import {computed} from 'vue'
 export default {
   data() {
@@ -24,7 +26,7 @@ export default {
     }
   },
   components:{
-    Home
+    Home,About
   },
   // provide:{
   //   name:message,

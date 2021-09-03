@@ -12,6 +12,6 @@ taught by coderwhy
 ### 07 finished
 ### 08 finished
 ### 09 finished
-### 10 ing 1.28 start nocoding
+### 10 finished 1.28 start nocoding
 ### 11 finished
-### 12 ing
+### 12 finished
