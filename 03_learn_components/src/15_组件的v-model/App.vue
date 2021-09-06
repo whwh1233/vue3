@@ -11,7 +11,7 @@
     <!-- <my-input v-model="message"></my-input> -->
     <!-- <my-input :modelValue="message" @update:model-value="message=$event"></my-input> -->
 
-    <my-input2  v-model="message" v-model:title="title"> </my-input2>
+    <!-- <my-input2  v-model="message" v-model:title="title"> </my-input2> -->
   </div>
 </template>
 
