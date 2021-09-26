@@ -2,12 +2,10 @@
   <div class="app">
     <button @click="toggle">显示/隐藏</button>
     <!-- 有了名字直接去写css -->
-    <transition name="why" type="transition" :duration="{ leave: 800, enter: 2200 }" mode="in-out" appear="true">
-      <!-- appear  页面第一次进入时候就显示动画 -->
+    <transition name="why" type="transition" :duration="{ leave: 800, enter: 2200 }" mode="in-out">
       <!-- 动画的表现：进入完了再消失    也可以是 out-in -->
-      <!-- <h2 v-if="isShow" class="title">Hello world</h2>
-      <h2 v-else class="title">你好啊</h2> -->
-      <component :is="isShow ? 'Home' : 'About'"></component>
+      <h2 v-if="isShow" class="title">Hello world</h2>
+      <h2 v-else class="title">你好啊</h2>
     </transition>
     <!-- 当插入或删除 transition 中的元素时 -->
     <!-- 在嗅探是否有对应的class ，那么会在恰当的时机添加/删除类名 -->
@@ -17,17 +15,11 @@
 </template>
 
 <script>
-import Home from './pages/Home.vue'
-import About from './pages/About.vue'
 export default {
   data() {
     return {
       isShow: true
     }
-  },
-  components: {
-    Home,
-    About
   },
   methods: {
     toggle() {

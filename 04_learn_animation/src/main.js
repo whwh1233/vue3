@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
-import App from './01_动画的基本使用/App.vue'
+import App from './02_结合第三方库进行使用/App.vue'
+import 'animate.css'
 
 createApp(App).mount('#app')
