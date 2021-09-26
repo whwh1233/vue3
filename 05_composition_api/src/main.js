@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './03_refAPI的补充/App.vue'
+import App from './04_computed与watch/App.vue'
 
 const app = createApp(App)
 // app.mixin({
