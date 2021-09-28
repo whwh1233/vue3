@@ -20,6 +20,7 @@ taught by coderwhy
 ### 15 finished
 ### 16 finished
 ### 17 finished 
+### 18 finished
 
 ## vue 的插件
 1. 一个对象，必须包含install 函数，会在安装函数时执行
