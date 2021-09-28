@@ -1,15 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img alt="Vue logo" src="./assets/logo.png" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { getCurrentInstance } from 'vue'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  mounted() {
+    console.log(this.$name)
+  },
+  //  在setup 里拿到 插件中定义的 config.globalProperties
+  setup() {
+    const instance = getCurrentInstance()
+    console.log(instance.appContext.config.globalProperties.$name)
   }
 }
 </script>
