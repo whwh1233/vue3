@@ -33,8 +33,8 @@ export default {
     }, 2000)
     const { scrollX, scrollY } = useScrollPosition()
     const { mouseX, mouseY } = useMousePosition()
-    // const data = useLocalStorage('info', { name: 'why', age: 18 })
-    const data = useLocalStorage('info')
+    const data = useLocalStorage('info', { name: 'why', age: 18 })
+    // const data = useLocalStorage('info')
     const changeData = () => {
       data.value = 'hahah'
     }
