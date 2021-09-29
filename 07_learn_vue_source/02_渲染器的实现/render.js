@@ -1,5 +1,6 @@
 const h = (tag, props, children) => {
   // vnode -> JS 对象 = {}
+  // vnode 的核心就是这三个东西 tag  props  children
   return {
     tag,
     props,
