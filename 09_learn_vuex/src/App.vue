@@ -12,17 +12,15 @@ export default {
   data() {
     return {
       message: 'hello vuex'
-      // counter: 0
     }
   },
   methods: {
     add() {
-      // this.counter++
+      // commit 提交 mutation
       this.$store.commit('add')
     },
     sub() {
       this.$store.commit('sub')
-      // this.counter--
     }
   }
 }
