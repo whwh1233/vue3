@@ -1,11 +1,46 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app">
+    <!-- <router-link>的其他参数：replace （即不可以返回） -->
+    <!-- active-class 被激活时候的样式 默认是 router-link-active -->
+    <router-link to="/home" active-class="why">首页</router-link>
+    <router-link to="/about" active-class="why" replace>关于</router-link>
+    <!-- :to to 也可以进行动态绑定 -->
+    <router-link to="/user/kobe/id/123" active-class="why" replace>用户</router-link>
+    <router-view></router-view>
+
+    <!-- 编程式跳转 -->
+    <button @click="jumpToAbout">
+      guanyu
+    </button>
+    <!-- 当匹配到不存在的路由时，显示某一个组件 -->
   </div>
-  <router-view/>
 </template>
 
+<script>
+import { useRouter } from 'vue-router'
+export default {
+  setup() {
+    const router = useRouter()
+    const jumpToAbout = () => {
+      // router.push('/about')
+      router.push({
+        path: '/about',
+        query: {
+          name: 'why',
+          age: '18'
+        }
+      })
+    }
+    return { jumpToAbout }
+  }
+  // methods: {
+  //   jumpToAbout() {
+  //     console.log('About')
+  //     console.log(this.$router.push('/about'))
+  //   }
+  // }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -14,17 +49,11 @@
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
+/* router-link-exact-acitve  包含子组件的精准匹配 */
+.router-link-active {
+  color: pink;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.why {
+  color: pink;
 }
 </style>
