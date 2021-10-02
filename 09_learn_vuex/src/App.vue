@@ -3,16 +3,21 @@
     <h2>{{ $store.state.counter }}</h2>
     <button @click="add">+1</button>
     <button @click="sub">-1</button>
+    <home></home>
   </div>
 </template>
 
 <script>
+import Home from './pages/Home.vue'
 export default {
   name: 'App',
   data() {
     return {
       message: 'hello vuex'
     }
+  },
+  components: {
+    Home
   },
   methods: {
     add() {
