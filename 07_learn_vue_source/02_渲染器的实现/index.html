@@ -11,17 +11,16 @@
     <script src="./render.js"></script>
     <script>
       //  1.通过h函数创建Vnode
-
-      const vnode = h('div', { class: 'why',id:'aaa' }, [h('h2', null, 'hahah'), h('button', null, '+1')]) // vdom
-      // console.log(vnode)
+      const vnode = h('div', { class: 'why', class: 'wh', id: 'aaa' }, [h('h2', null, 'hahah'), h('button', null, '+1')]) // vdom
+      console.log(vnode)
       //  2. 通过 mount 函数 挂载 vnode 到 #app 上
       mount(vnode, document.querySelector('#app'))
 
-      // 3.创建新的 vnode
+      // 3.创建新的 vnode，尝试一下 patch 函数
       setTimeout(() => {
-        const vnode1 = h('h2', { class: 'coderwhy',id:'aaa' }, [h('h2', null, 'hehehe'), h('button', null, '-1')]) // vdom
-        patch(vnode,vnode1)
-      }, 2000);
+        const vnode1 = h('h2', { class: 'coderwhy', id: 'aaa' }, [h('h2', null, 'hehehe'), h('button', null, '-1')]) // vdom
+        patch(vnode, vnode1)
+      }, 2000)
     </script>
   </body>
 </html>
