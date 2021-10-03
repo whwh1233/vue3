@@ -1,4 +1,6 @@
 const userModule = {
+  namespaced: true,
+
   state() {
     return {
       message: 'user',

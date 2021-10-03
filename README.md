@@ -27,7 +27,7 @@ taught by coderwhy
 ### 22 finished
 ### 23 finished
 ### 24 finished
-### 25 ing
+### 25 ing  1h10min no coding
 
 
 
