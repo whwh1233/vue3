@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
+import { ADD_N } from './mutation-types'
 const store = createStore({
   state() {
     return {

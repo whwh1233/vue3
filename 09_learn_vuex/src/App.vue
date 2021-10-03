@@ -1,9 +1,7 @@
 <template>
   <div>
-    <h2>{{ $store.state.counter }}</h2>
-    <button @click="add">+1</button>
-    <button @click="sub">-1</button>
-    <home></home>
+    <h2>首页</h2>
+    <Home></Home>
   </div>
 </template>
 
@@ -18,15 +16,6 @@ export default {
   },
   components: {
     Home
-  },
-  methods: {
-    add() {
-      // commit 提交 mutation
-      this.$store.commit('add')
-    },
-    sub() {
-      this.$store.commit('sub')
-    }
   }
 }
 </script>
