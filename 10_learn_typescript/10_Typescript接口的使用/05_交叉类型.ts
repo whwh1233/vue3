@@ -31,3 +31,5 @@ const obj2:MyType2 = {
 
   }
 }
+
+export {}

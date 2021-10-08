@@ -32,4 +32,4 @@ taught by coderwhy
 ### 27 finished 
 ### 28 finished
 ### 29 finished
-### 30 ing
+### 30 47 min ing
